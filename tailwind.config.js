@@ -8,6 +8,7 @@ export default {
     extend: {
       colors:{
         background:{
+          light: "#333333 ",
           dark:"#1B1B1B"
         },
         customeGray:{
