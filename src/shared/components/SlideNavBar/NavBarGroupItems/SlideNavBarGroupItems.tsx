@@ -2,7 +2,7 @@ import * as React from 'react';
 import SlideNavBarItem, { SlideNavBarItemProps } from '../NavBarItem/SlideNavBarItem';
 
 export interface ISlideNavBarGroupItemsProps {
-    nameGroup: String;
+    nameGroup: string;
     items: SlideNavBarItemProps[];
 }
 

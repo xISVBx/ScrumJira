@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface SlideNavBarItemProps {
-  itemName: String;
+  itemName: string;
   onClick: () => void;
 }
 
