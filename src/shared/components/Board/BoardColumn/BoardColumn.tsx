@@ -50,7 +50,7 @@ const BoardColumn: React.FunctionComponent<ContainerProps> = ({
                 <div className='flex w-full flex-row justify-between items-center'>
                     {title}
                     <DropdownButton buttonLabel={<FiMoreVertical />} color="light">
-                        <div className='flex flex-col'>
+                        <div className='flex flex-col relative'>
                             <Button
                                 type='simple'
                                 shadow={false}
@@ -63,7 +63,7 @@ const BoardColumn: React.FunctionComponent<ContainerProps> = ({
                     </DropdownButton>
                 </div>
             </div>
-            <div className='px-2 space-y-5 flex flex-col'>
+            <div className='px-2 space-y-5 flex flex-col h-full w-full'>
                 <div {...listeners}>
                     {children}
                 </div>

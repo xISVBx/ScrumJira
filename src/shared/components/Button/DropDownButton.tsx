@@ -44,9 +44,9 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
 
   let colorClass = '';
   if (color === 'dark') {
-    colorClass = 'bg-background-dark hover:opacity-80';
+    colorClass = 'bg-background-dark ';
   } else if (color === 'light') {
-    colorClass = 'bg-transparent hover:opacity-80';
+    colorClass = 'bg-transparent ';
   }
 
   return (

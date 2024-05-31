@@ -367,7 +367,7 @@ const Board: React.FunctionComponent<IBoardProps> = () => {
                     value={itemName}
                     onChange={(e) => setItemName(e.target.value)}
                 />
-                <Button onClick={onAddItem} >
+                <Button onClick={onAddItem} shadow={false}>
                     <p>Agregar Tarea</p>
                 </Button>
 

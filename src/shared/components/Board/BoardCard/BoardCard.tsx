@@ -26,7 +26,7 @@ const BoardCard: React.FunctionComponent<ItemsType> = ({ id, title }) => {
             type: 'item',
         },
     });
-    const baseClasses = 'min-h-[100px] bg-background-dark rounded-md shadow-2xl hover:opacity-80 w-full p-2 relative';
+    const baseClasses = 'min-h-[100px] bg-background-dark p-2 rounded-md shadow-2xl hover:bg-red-500 w-full flex flex-col justify-between';
     // Si está siendo arrastrado, añadir clase de opacidad
     const draggingClass = isDragging ? 'opacity-50' : '';
 
@@ -42,10 +42,8 @@ const BoardCard: React.FunctionComponent<ItemsType> = ({ id, title }) => {
                 transform: CSS.Translate.toString(transform),
             }}
             className={classes}>
-            <p className='text-white'>{title}</p>
-            <div className='absolute bottom-0 pb-1'>
+                <h1 className='text-white '>{title}</h1>
                 <p className='text-white'>{id}</p>
-            </div>
         </div>
     );
 };
