@@ -4,7 +4,8 @@ import { CSS } from '@dnd-kit/utilities';
 import { useSortable } from '@dnd-kit/sortable';
 
 export interface IBoardCardProps {
-    key: UniqueIdentifier
+    id: UniqueIdentifier;
+    title: string;
 }
 
 type ItemsType = {

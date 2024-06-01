@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { IBoardCardProps } from '../BoardCard/BoardCard';
 import { UniqueIdentifier } from '@dnd-kit/core';
-import ContainerProps from '../../../DndKit/Container/container.type';
 import { CSS } from '@dnd-kit/utilities';
 import { useSortable } from '@dnd-kit/sortable';
 import { FiMoreVertical } from 'react-icons/fi';
@@ -10,16 +8,16 @@ import DropdownButton from '../../Button/DropDownButton';
 
 
 export interface IBoardColumnProps {
-    key: UniqueIdentifier;
-    name: string
-    cards: IBoardCardProps[]
+    id: UniqueIdentifier;
+    children:React.ReactNode
+    title: string
+    onAddItem: () => void
 }
 
-const BoardColumn: React.FunctionComponent<ContainerProps> = ({
+const BoardColumn: React.FunctionComponent<IBoardColumnProps> = ({
     id,
     children,
     title,
-    description,
     onAddItem, }) => {
     const {
         attributes,
@@ -34,13 +32,13 @@ const BoardColumn: React.FunctionComponent<ContainerProps> = ({
             type: 'container',
         },
     });
-    const baseClasses = 'min-w-60 bg-background-light rounded-md flex flex-col h-full py-2 shadow-2xl';
+    const baseClasses = 'min-w-60 bg-background-light rounded-md flex flex-col h-full py-2 shadow-2xl min-h-[calc(100vh-185px)] ';
     const draggingClass = isDragging ? 'opacity-50' : '';
     const containerClasses = `${baseClasses} ${draggingClass}`.trim();
     return (
         <div
             {...attributes}
-            ref={setNodeRef}
+            ref={setNodeRef} 
             style={{
                 transition,
                 transform: CSS.Translate.toString(transform),
@@ -63,8 +61,8 @@ const BoardColumn: React.FunctionComponent<ContainerProps> = ({
                     </DropdownButton>
                 </div>
             </div>
-            <div className='px-2 space-y-5 flex flex-col h-full w-full'>
-                <div {...listeners}>
+            <div className='px-2 space-y-5 flex flex-col'>
+                <div {...listeners} >
                     {children}
                 </div>
             </div>

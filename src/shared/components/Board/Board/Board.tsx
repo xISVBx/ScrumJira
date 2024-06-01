@@ -6,12 +6,12 @@ import {
     DndContext,
     DragEndEvent,
     DragMoveEvent,
-    DragOverlay,
     DragStartEvent,
     KeyboardSensor,
+    MouseSensor,
     PointerSensor,
     UniqueIdentifier,
-    closestCorners,
+    closestCenter,
     useSensor,
     useSensors,
 } from '@dnd-kit/core';
@@ -134,6 +134,7 @@ const Board: React.FunctionComponent<IBoardProps> = () => {
 
     const sensors = useSensors(
         useSensor(PointerSensor),
+        useSensor(MouseSensor),
         useSensor(KeyboardSensor, {
             coordinateGetter: sortableKeyboardCoordinates,
         })
@@ -372,9 +373,10 @@ const Board: React.FunctionComponent<IBoardProps> = () => {
                 </Button>
 
             </Modal>
-            <div className='w-full flex flex-row space-x-2 overflow-x-auto pb-2 h-[calc(100vh-175px)]'>
+            <div className='w-full flex flex-row space-x-7 overflow-x-auto pb-2 h-[calc(100vh-175px)]'>
                 <DndContext
-                    collisionDetection={closestCorners}
+                    modifiers={[]}
+                    collisionDetection={closestCenter}
                     sensors={sensors}
                     onDragStart={handleDragStart}
                     onDragMove={handleDragMove}
@@ -388,7 +390,6 @@ const Board: React.FunctionComponent<IBoardProps> = () => {
                                 onAddItem={() => {
                                     setShowAddItemModal(true);
                                     setCurrentContainerId(container.id);
-                                    console.log("xd")
                                 }}>
                                 <SortableContext items={container.items.map((i) => i.id)}>
                                     <div className="flex items-start flex-col gap-y-4">
