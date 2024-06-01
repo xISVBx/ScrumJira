@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BoardColumn, { IBoardColumnProps } from '../BoardColumn/BoardColumn';
+import BoardColumn, { IBoardColumn, IBoardColumnProps } from '../BoardColumn/BoardColumn';
 import { v4 as uuidv4 } from 'uuid';
 
 import {
@@ -29,17 +29,9 @@ interface IBoardProps {
     columns: IBoardColumnProps[]
 }
 
-type DNDType = {
-    id: UniqueIdentifier;
-    title: string;
-    items: {
-        id: UniqueIdentifier;
-        title: string;
-    }[];
-};
 
 const Board: React.FunctionComponent<IBoardProps> = () => {
-    const [containers, setContainers] = React.useState<DNDType[]>([
+    const [containers, setContainers] = React.useState<IBoardColumn[]>([
         {
             id: 'container-1',
             title: 'To Do',

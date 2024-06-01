@@ -53,7 +53,7 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
     <div className="relative inline-block" ref={dropdownRef}>
       <button
         onClick={handleButtonClick}
-        className={`text-white font-bold py-2 px-4 rounded-md shadow-lg 
+        className={`text-white font-bold py-2 px-4 rounded-md shadow-lg
           ${colorClass}
           ${large ? 'text-xl' : ''}
           ${outlined ? 'border' : ''}
