@@ -7,11 +7,17 @@ import Button from '../../Button/Button';
 import DropdownButton from '../../Button/DropDownButton';
 
 
-export interface IBoardColumnProps {
+export interface IBoardColumn {
     id: UniqueIdentifier;
-    children:React.ReactNode
     title: string
-    onAddItem: () => void
+    items: {
+        id: UniqueIdentifier;
+        title: string;
+    }[]
+}
+export interface IBoardColumnProps extends Omit<IBoardColumn, 'items'> {
+    children: React.ReactNode
+    onAddItem: () => void;
 }
 
 const BoardColumn: React.FunctionComponent<IBoardColumnProps> = ({
@@ -38,7 +44,8 @@ const BoardColumn: React.FunctionComponent<IBoardColumnProps> = ({
     return (
         <div
             {...attributes}
-            ref={setNodeRef} 
+            {...listeners}
+            ref={setNodeRef}
             style={{
                 transition,
                 transform: CSS.Translate.toString(transform),
@@ -53,7 +60,7 @@ const BoardColumn: React.FunctionComponent<IBoardColumnProps> = ({
                                 type='simple'
                                 shadow={false}
                                 outlined={false}
-                                onClick={()=>{onAddItem!()}}>
+                                onClick={() => { onAddItem!() }}>
                                 Agregar
                             </Button>
                         </div>
@@ -62,7 +69,7 @@ const BoardColumn: React.FunctionComponent<IBoardColumnProps> = ({
                 </div>
             </div>
             <div className='px-2 space-y-5 flex flex-col'>
-                <div {...listeners} >
+                <div>
                     {children}
                 </div>
             </div>
