@@ -2,6 +2,7 @@ import * as React from 'react';
 import { UniqueIdentifier } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import { useSortable } from '@dnd-kit/sortable';
+import CircleAvatar from '../../Avatar/CirlceAvatar';
 
 export interface IBoardCardProps {
     id: UniqueIdentifier;
@@ -43,8 +44,11 @@ const BoardCard: React.FunctionComponent<ItemsType> = ({ id, title }) => {
                 transform: CSS.Translate.toString(transform),
             }}
             className={classes}>
-                <h1 className='text-white '>{title}</h1>
+            <h1 className='text-white '>{title}</h1>
+            <div className='flex flex-row justify-between items-center'>
                 <p className='text-white'>{id}</p>
+                <CircleAvatar size={25} firstName='Ivan' lastName='Vasquez'/>
+            </div>
         </div>
     );
 };
